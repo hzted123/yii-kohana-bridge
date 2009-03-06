@@ -3,13 +3,14 @@ class Kohana
 {
 	private static $configuration;
 	
-	public function initialize()
+	public function init()
 	{
 		define('EXT', '.php');
 		define('SYSPATH', Yii::app()->basePath.'/kohana/');
 		define('APPPATH', SYSPATH);
+		define('KPATH', basename(dirname(__FILE__)));
 		
-		Yii::import('application.kohana.core.utf8');
+		Yii::import('application.'.KPATH.'.core.utf8');
 	}
 	
 	public static function autoload($className)
